@@ -1,5 +1,7 @@
 # mocohacks
 
+Netifly Link: https://mocohackathon.netlify.app/
+
 Project for Mocohacks 2021
 
 Maxwell, Tyson, Isaac
