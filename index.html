@@ -39,9 +39,9 @@
       </div>
       <div class="col-md-6" style="background-color:red">
         <div>Teachable Machine Pose Model</div>
-        <input id="startBtn" type="button" value="Start" />
-        <button onclick="init()">hello</button>
-        <button onclick="stoploop()">stop</button>
+        <!--<input id="startBtn" type="button" value="Start(failure)" />-->
+        <button onclick="init();loopstarter()">Start</button>
+        <button onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
         <div>
           <canvas style="height:200px; width:200px" id="canvas"></canvas>
@@ -83,14 +83,17 @@
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
     let loopstop = false;
-    function stoploop() {
+    function loopstopper() {
       loopstop = true;
+    }
+    function loopstarter() {
+      loopstop = false;
     }
     // the link to your model provided by Teachable Machine export panel
     const URL = "/my-pose-model/";
     let model, webcam, ctx, labelContainer, maxPredictions;
 
-    var mixBtn = document.getElementById("startBtn");
+    /*var mixBtn = document.getElementById("startBtn");
     mixBtn.addEventListener("click", startTM);
 
     function startTM() {
@@ -114,7 +117,7 @@
       } else {
         console.log("goodbye")
       }
-    }
+    }*/
 
 
     async function init() {
@@ -147,11 +150,14 @@
     }
 
     async function loop(timestamp) {
-      webcam.update(); // update the webcam frame
       //stoppin condition for this loop with button
-      //if statement with var stoploop = false  
-      await predict();
-      window.requestAnimationFrame(loop);//recursively
+      //if statement with var loopstop = false  
+      if (loopstop == false) {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);//recursively
+      }
+
     }
 
     async function predict() {
