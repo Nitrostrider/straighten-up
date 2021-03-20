@@ -14,3 +14,4 @@ To Do List
 - [ ] Explanation of why this is a problem
 - [ ] Customize alert sound?
 - [ ] Maybe an overall report on how well you did once you stop using the website?
+- [ ] Camera placement?
