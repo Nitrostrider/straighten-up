@@ -1,15 +1,18 @@
-.darkpurple {
-  color:#2b2e4a;
+html {
+  scroll-behavior:smooth;
 }
-.orangered {
-  color:#e84545;
+/*
+darkpurple,#2b2e4a,
+orangered,#ee7777
+bloodred, #903749
+brownred,#53354a
+yellow, #fff44f
+*/
+.nav-link {
+  margin:0px 20px;
+  text-align:center;
+  color: #ee7777!important;
 }
-.bloodred {
- color: #903749; 
-}
-.brownred {
-  color:#53354a;
-}
-.yellow {
-  color: #fff44f;
+.nav-link:hover {
+  color:#fff44f!important;
 }
