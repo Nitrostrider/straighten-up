@@ -39,10 +39,12 @@
       </div>
       <div class="col-md-6" style="background-color:red">
         <div>Teachable Machine Pose Model</div>
-        <button type="button" onclick="init()">Start</button>
-        <button id="stopButton" type="button" onclick="">Stop</button>
+        <input id="startBtn" type="button" value="Start" />
+        <button onclick="init()">hello</button>
+        <button onclick="stoploop()">stop</button>
+        <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
         <div>
-          <canvas id="canvas"></canvas>
+          <canvas style="height:200px; width:200px" id="canvas"></canvas>
         </div>
         <div id="label-container"></div>
       </div>
@@ -56,6 +58,18 @@
     <p>The term posture is in reference to the position of one’s body in a standing or sitting position. The spine
       consists of three natural curvatures which when aligned evenly distributes the weight between your feet. Good
       posture distributes this weight to prevent lopsidedness.</p>
+    <p>- Nourishing proper posture form can</p>
+    <ol>
+      <li>Prevent stress from building on your spinal chords</li>
+      <li>Decrease back pains and aches</li>
+      <li>Servicable to aging</li>
+      <li>Decrease the likelihood of headaches</li>
+      <li>Improved Oxygen Flow</li>
+    </ol>
+    <p>As video meetings become more prevalent during this day and age, your virtual image becomes very important. Along
+      with the various health benefits associated with good posture, this website will also assist your image on
+      professional meetings online.
+    </p>
   </div>
 
 
@@ -68,10 +82,40 @@
   <script type="text/javascript">
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
-
+    let loopstop = false;
+    function stoploop() {
+      loopstop = true;
+    }
     // the link to your model provided by Teachable Machine export panel
     const URL = "/my-pose-model/";
     let model, webcam, ctx, labelContainer, maxPredictions;
+
+    var mixBtn = document.getElementById("startBtn");
+    mixBtn.addEventListener("click", startTM);
+
+    function startTM() {
+      console.log("started");
+      mixBtn.removeEventListener("click", startTM);
+      mixBtn.addEventListener("click", stopTM);
+      mixBtn.value = "Stop";
+    }
+    function stopTM() {
+      console.log("stopped");
+      mixBtn.removeEventListener("click", stopTM);
+      mixBtn.addEventListener("click", startTM);
+    }
+
+    function hello() {
+      var cow = 1;
+      if (cow == 1) {
+        console.log("d");
+        init();
+        return;
+      } else {
+        console.log("goodbye")
+      }
+    }
+
 
     async function init() {
       const modelURL = URL + "model.json";
@@ -87,6 +131,7 @@
       const size = 200;
       const flip = true; // whether to flip the webcam
       webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+
       await webcam.setup(); // request access to the webcam
       await webcam.play();
       window.requestAnimationFrame(loop);
@@ -103,8 +148,10 @@
 
     async function loop(timestamp) {
       webcam.update(); // update the webcam frame
+      //stoppin condition for this loop with button
+      //if statement with var stoploop = false  
       await predict();
-      window.requestAnimationFrame(loop);
+      window.requestAnimationFrame(loop);//recursively
     }
 
     async function predict() {
@@ -122,7 +169,7 @@
         console.log(prediction[i].probability.toFixed(2))
       }
 
-      // finally draw the poses
+      // draw the poses
       drawPose(pose);
     }
 
@@ -130,16 +177,14 @@
       if (webcam.canvas) {
         ctx.drawImage(webcam.canvas, 0, 0);
         // draw the keypoints and skeleton
-        if (pose) {
+        /*if (pose) {
           const minPartConfidence = 0.5;
           tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
           tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-        }
+        }*/
       }
     }
-    document.getElementById('stopButton').onclick = function() {
-      alert("button was clicked");
-    };
+
   </script>
   <script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 
