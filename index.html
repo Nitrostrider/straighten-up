@@ -13,7 +13,9 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#2b2e4a;">
     <div class="container">
       <a class="navbar-brand" style="font-size:25px;color: #ee7777" href="#">Project</a>
-      <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span style="border-color:pink;" class="fish navbar-toggler-icon">
         </span>
       </button>
@@ -28,13 +30,39 @@
     </div>
   </nav>
   <div style="height:60px"></div>
-  <h1>Mocohacks Project</h1>
-  <div>Teachable Machine Pose Model</div>
-  <button type="button" onclick="init()">Start</button>
-  <div>
-    <canvas id="canvas"></canvas>
+
+  <div class="container">
+    <h1>Mocohacks Project</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p>hello</p>
+      </div>
+      <div class="col-md-6" style="background-color:red">
+        <div>Teachable Machine Pose Model</div>
+        <button type="button" onclick="init()">Start</button>
+        <button id="stopButton" type="button" onclick="">Stop</button>
+        <div>
+          <canvas id="canvas"></canvas>
+        </div>
+        <div id="label-container"></div>
+      </div>
+    </div>
+
+
   </div>
-  <div id="label-container"></div>
+
+  <div class="container">
+    <h1>Reaching New Heights</h1>
+    <p>The term posture is in reference to the position of one’s body in a standing or sitting position. The spine
+      consists of three natural curvatures which when aligned evenly distributes the weight between your feet. Good
+      posture distributes this weight to prevent lopsidedness.</p>
+  </div>
+
+
+
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
   <script type="text/javascript">
@@ -86,10 +114,12 @@
       // Prediction 2: run input through teachable machine classification model
       const prediction = await model.predict(posenetOutput);
 
-      for (let i = 0; i < maxPredictions; i++) {
+      for (let i = 0; i < 2; i++) {
         const classPrediction =
           prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        //2 decimal places
         labelContainer.childNodes[i].innerHTML = classPrediction;
+        console.log(prediction[i].probability.toFixed(2))
       }
 
       // finally draw the poses
@@ -107,6 +137,9 @@
         }
       }
     }
+    document.getElementById('stopButton').onclick = function() {
+      alert("button was clicked");
+    };
   </script>
   <script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 
