@@ -1,4 +1,5 @@
 # mocohacks
 
+Project for Mocohacks 2021
 
-asdfsadf
+Maxwell, Tyson, Isaac
