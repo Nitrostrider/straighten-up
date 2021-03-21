@@ -19,3 +19,9 @@ yellow, #fff44f
 .tmbtn {
   background-color:green;
 }
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility:visible
+}

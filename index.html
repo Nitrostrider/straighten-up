@@ -58,13 +58,13 @@
         <button class="tmbtn" onclick="init();loopstarter()">Start</button>
         <button class="tmbtn" onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
-        <button class="tmbtn" onclick="">Align</button>
+        <button class="tmbtn" onclick="alignshowtoggle()">Align</button>
         <div class="text-center" style="background-color:blue;height:200px;position:relative;">
           <canvas style="height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
 
-          <div style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;"></div>
-          <div style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;"></div>
-          <div style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div class="colorfulBar hidden" style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div class="colorfulBar hidden" style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div class="colorfulBar hidden" style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;"></div>
         </div>
         <div style="height:100px;" id="label-container"></div>
       </div>
@@ -118,6 +118,31 @@
     }
     function loopstarter() {
       loopstop = false;
+    }
+
+
+    let alignshow=true;
+    function alignshowtoggle() {
+      var element = document.getElementsByClassName("colorfulBar");
+      if (alignshow==false) {
+        alignshow = true;
+        element[0].classList.add("hidden");
+        element[0].classList.remove("visible");
+        element[1].classList.add("hidden");
+        element[1].classList.remove("visible");
+        element[2].classList.add("hidden");
+        element[2].classList.remove("visible");
+        
+      } else {
+        alignshow=false;
+        
+        element[0].classList.add("visible");
+        element[0].classList.remove("hidden");
+        element[1].classList.add("visible");
+        element[1].classList.remove("hidden");
+        element[2].classList.add("visible");
+        element[2].classList.remove("hidden");
+      }
     }
     // the link to your model provided by Teachable Machine export panel
     const URL = "/my-pose-model/";
@@ -193,7 +218,7 @@
       if (webcam.canvas) {
         ctx.drawImage(webcam.canvas, 0, 0);
         // draw the keypoints and skeleton
-        if (pose) {
+        if (pose && alignshow ==false) {
           const minPartConfidence = 0.5;
           tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
           tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
