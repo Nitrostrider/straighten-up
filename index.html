@@ -126,6 +126,13 @@
     async function init() {
       const modelURL = URL + "model.json";
       const metadataURL = URL + "metadata.json";
+      var audio = new Audio('siren.mp3'); 
+  function myaudiofunction(prediction){
+  if(prediction[0]probability.toFixed(2) > 0.9){
+      audio.play();
+  }
+}
+
 
       // load the model and metadata
       // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
