@@ -33,51 +33,50 @@
       </div>
     </div>
   </nav>
-  <div style="height:100px"></div>
 
-  <div id="machine" style="margin-bottom:40px;"
-   class="container">
-    <h1 style="font-size:50px;">Straighten Up</h1>
-    <p>This is our MoCoHacks 2021 project.</p>
-    <p>Maxwell Ye, Tyson Fang, Isaac Yebio</p>
-    <div class="row">
+  <div id="machine" style="padding-top:150px;margin-bottom:80px;" class="container">
+    <h1 style="color:#fff44f;text-align:center;font-size:80px;">Straighten Up</h1>
+    <p style="text-align:center">This is our MoCoHacks 2021 project.</p>
+    <p style="text-align:center">Maxwell Ye, Tyson Fang, Isaac Yebio</p>
+    <div style="margin-top:50px;" class="row">
       <div class="d-flex align-items-center col-md-6">
         <div>
-          <h3>The Optimal Posture</h3>
+          <h3 style="color:#fff44f">The Best Posture</h3>
           <p>Assuming that the user is using a computer and sitting at a table...</p>
           <ul>
             <li>20+ in between screen and user's eyes</li>
             <li>Computer is directly in front of the user</li>
             <li>Center of monitor is 15-20 degrees below horizontal eye level</li>
           </ul>
-          <h3>Instructions</h3>
+          <h3 style="color:#fff44f">Instructions</h3>
           <ol>
-            <li>Align head to be in between the aquamarine lines.</li>
-            <li>Align nose and ears to rest on pink line.</li>
+            <li>Align your head to be vertically in between the yellow lines.</li>
+            <li>Align your nose and ears to rest horizontally on the dark purple line.</li>
           </ol>
         </div>
       </div>
       <div class="col-md-6 text-center"
-        style="background-color:#53354a;border-radius:30px;padding-right:12px;padding-left:12px">
-        <h3 style="text-align:center;">Teachable Machine Model</h3>
+        style="background-color:#53354a;border-radius:30px;padding-right:20px;padding-left:20px;">
+        <h3 style="text-align:center;margin-top:20px;margin-bottom:20px;color:#fff44f">Teachable Machine Model</h3>
 
-        <button class="tmbtn" type="button" onclick="init();loopstarter()">Start</button>
+        <button class="tmbtn" type="button" onclick="init();loopstarter();loudsound()">Start</button>
         <button class="tmbtn" type="button" onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
         <button class="tmbtn" type="button" onclick="alignshowtoggle()">Align</button>
-        <div class="text-center" style="background-color:#ee7777;height:300px;position:relative;margin-bottom:20px;">
-          <canvas style="height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
+        <div class="text-center"
+          style="background-color:#ee7777;height:300px;position:relative;margin-bottom:20px;border-radius:20px;">
+          <canvas style="border-radius:5px;height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
 
           <div class="colorfulBar hidden"
-            style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;">
+            style="background-color:#fff44f;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;">
           </div>
           <div class="colorfulBar hidden"
-            style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;">
+            style="background-color:#2b2e4a;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;">
           </div>
           <div class="colorfulBar hidden"
-            style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;">
+            style="background-color:#fff44f;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;">
           </div>
-          <div style="color:#2b2e4a; font-size:20px;height::100px;text-align:center;" id="label-container"></div>
+          <div style="color:#2b2e4a; font-size:20px;height:100px;text-align:center;" id="label-container"></div>
         </div>
 
       </div>
@@ -86,16 +85,16 @@
 
   </div>
 
-  <div style="background-color:#903749">
-    <div id="heights" style="padding:100px 0px;color:yellow;" class="container">
+  <div style="background-color:#53354a;">
+    <div id="heights" style="padding:100px 0px;color:#ee7777;" class="container">
       <div class="row">
-        <div class="col-lg-8">
-          <h1 style="text-align:center">Reaching New Heights</h1>
+        <div class="col-lg-6">
+          <h1 style="color:#fff44f;margin-bottom:20px;text-align:center">Reaching New Heights</h1>
           <p>The term posture is in reference to the position of one’s body in a standing or sitting position. The spine
             consists of three natural curvatures which when aligned evenly distributes the weight between your feet.
             Good
             posture distributes this weight to prevent lopsidedness.</p>
-          <p>- Nourishing proper posture form can</p>
+          <h3 style="color:#fff44f">Benefits</h3>
           <ol>
             <li>Prevent stress from building on your spinal chords</li>
             <li>Decrease back pains and aches</li>
@@ -109,54 +108,88 @@
             professional meetings online.
           </p>
         </div>
-        <div class="col-lg-4 d-flex align-items-center">
-          <img class='img-fluid' src="onlinelearning.jpeg" alt="Online Learning">
+        <div class="col-lg-6 d-flex align-items-center">
+          <img
+            style="position:relative;left:50%;transform:translateX(-50%);max-width:400px;width:100%;border-radius:20px;"
+            src="posture.png" alt="Posture">
         </div>
       </div>
     </div>
   </div>
 
 
-<<<<<<< HEAD
-  <div id="how" class="container">
-=======
-  <div id="what" class="container">
->>>>>>> ce812b762a8fc86d05f9c2080b7cdc911b2f822a
-    <h1> How We Did It</h1>
+  <div style="padding:100px 0px" id="how" class="container">
+    <h1 style="color:#fff44f;margin-bottom:20px;"> How We Did It</h1>
     <p> Hello, our names are Maxwell Ye, Isaac Yebio, and Tyson Fang, and this is our MoCoHacks 2021 project. Our
       project’s name is “Straighten Up,” it is a website designed to help the user maintain good posture while sitting
       at their computer. We are submitting it into the Best UI Hack project track.
     </p>
-    <p>
-      Through the use of Teach Machine, a web-based tool that trains your computer to recognize sounds and images,
-      “Straight Up” scans the users posture and alerts them if they begin to slouch or fall out of the good posture
-      range. Good posture is a cornerstone of a healthy lifestyle and has numerous long term benefits, such as improved
-      back performance with age and a decrease in overall health issues denoting physical performance. Creating an
-      objective guideline to good posture as well as the correct measurement for bad posture was extremely difficult,
-      but through immense research our team was able to come up with respectable guidelines for correct posture. We
-      chose this overall concept due to the increased use and importance of digital communication in the ongoing
-      pandemic and how users can still stay healthy while working at their keyboards. The website will recommend users
-      the best distance between the screen and user’s eyes for optimal positioning along with a video tracker with
-      alignments to help the user properly orient themselves. We also provided resources at the bottom of the website so
-      users can further educate themselves on the importance of good posture. Due to the difficulty of coding the
-      teaching machine we are extremely proud of the finished project. Because none of us had collaboratively coded in
-      the past, learning the ins and outs of github was integral in our success. The github workshop, along with the
-      plethora of other workshops throughout the day, were extremely informative, and assisted us throughout the
-      hackathon. Furthermore, using the internet along with intuitive thinking, we were able to learn many new lines of
-      code that will be undoubtedly helpful in our future. In the future we hope to implement an overall report on how
-      good your posture was over the period of time you were on your computer.
-    </p>
+    <div class="row" style="margin-top:30px;margin-bottom:30px;">
+      <div class="d-flex align-items-center col-lg-8">
+        <p>
+          Through the use of Teachable Machine, a web-based tool that trains your computer to recognize sounds and
+          images,
+          “Straight Up” scans the users posture and alerts them if they begin to slouch or fall out of the good posture
+          range. Good posture is a cornerstone of a healthy lifestyle and has numerous long term benefits, such as
+          improved
+          back performance with age and a decrease in overall health issues denoting physical performance. Creating an
+          objective guideline to good posture as well as the correct measurement for bad posture was extremely
+          difficult,
+          but through immense research our team was able to come up with respectable guidelines for correct posture.
+        </p>
+      </div>
+      <div class="d-flex align-items-center col-lg-4">
+        <img class="img-fluid" src="machinelearning.jpg" alt="Machine Learning" style="border-radius:20px">
+      </div>
+    </div>
+    <div style="margin-top:30px;margin-bottom:30px;" class="row">
+      <div class="d-flex align-items-center col-lg-8 order-1 order-lg-2">
+        <p>We
+          chose this overall concept due to the increased use and importance of digital communication in the ongoing
+          pandemic and how users can still stay healthy while working at their keyboards. The website will recommend
+          users
+          the best distance between the screen and user’s eyes for optimal positioning along with a video tracker with
+          alignments to help the user properly orient themselves. We also provided resources at the bottom of the
+          website so
+          users can further educate themselves on the importance of good posture.</p>
+      </div>
+      <div class="d-flex align-items-center col-lg-4 order-2 order-lg-1">
+        <img class="img-fluid" src="socialdistance.jpeg"
+          style="position:relative;transform:translateX(-50%);left:50%;border-radius:20px;">
+      </div>
+    </div>
+    <div style="margin-top:30px;margin-bottom:30px;" class="row">
+      <div class="d-flex align-items-center col-lg-8">
+        <p>Due to the difficulty of coding the
+          teaching machine we are extremely proud of the finished project. Because none of us had collaboratively coded
+          in
+          the past, learning the ins and outs of github was integral in our success. The github workshop, along with the
+          plethora of other workshops throughout the day, were extremely informative, and assisted us throughout the
+          hackathon. Furthermore, using the internet along with intuitive thinking, we were able to learn many new lines
+          of
+          code that will be undoubtedly helpful in our future. In the future we hope to implement an overall report on
+          how
+          good your posture was over the period of time you were on your computer.
+        </p>
+      </div>
+      <div class="d-flex align-items-center col-lg-4">
+        <img class="img-fluid" style="border-radius:20px;position:relative;left:50%;transform: translateX(-50%);"
+          src="onlinelearning.jpeg">
+      </div>
+    </div>
+
   </div>
 
 
 
-  <div id="resources" class="container">
-    <h1>Resources</h1>
-    <a
-      href="https://www.osha.gov/SLTC/etools/computerworkstations/components_monitors.html#:~:text=Generally%2C%20the%20preferred%20viewing%20distance,the%20monitor%20(table%20depth)">United
-      States Department of Labor</a>
-    <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>
-    <a href="https://getbootstrap.com/">Bootstrap</a>
+  <div style="background-color: #53354a;">
+    <div style="padding-top:100px;padding-bottom:100px;" id="resources" class="container">
+      <h1 style="color:#fff44f;">Resources</h1>
+      <a
+        href="https://www.osha.gov/SLTC/etools/computerworkstations/components_monitors.html#:~:text=Generally%2C%20the%20preferred%20viewing%20distance,the%20monitor%20(table%20depth)">Computer Workstation Facts (US Department of Labor)</a>
+      <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>
+      <a href="https://github.com/Nitrostrider/straighten-up">Github</a>
+    </div>
   </div>
 
 
@@ -274,6 +307,10 @@
           tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
         }
       }
+    }
+
+    function loudsound() {
+      alert("Hello! Be cautious of the alert sound!")
     }
 
   </script>

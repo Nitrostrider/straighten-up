@@ -29,14 +29,31 @@ yellow, #fff44f
   color:#fff44f!important;
 }
 .tmbtn {
-  background-color:green;
+  background-color:#903749;
   margin:0 20px 10px;
-  padding:0px 10px;
+  padding:5px 30px;
   font-size:20px;
+  color:#fff44f;
+  border-radius:10px;
+  border-style:none;
+}
+.tmbtn:hover {
+  background-color:#ee7777;
+  color:#2b2e4a;
 }
 .hidden {
   visibility: hidden;
 }
 .visible {
   visibility:visible
+}
+#resources a {
+  display:block;
+  text-decoration: none;
+  font-size:20px;
+  color:#ee7777;
+  margin-top:20px;
+}
+#resources a:hover {
+  color:#fff44f;
 }
