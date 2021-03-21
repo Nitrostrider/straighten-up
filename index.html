@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#2b2e4a;">
     <div class="container">
-      <a class="navbar-brand" style="font-size:25px;color: #ee7777" href="#">Straighten Up</a>
+      <a class="navbar-brand" style="font-size:30px;color: #ee7777" href="#">Straighten Up</a>
       <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -30,6 +30,11 @@
     </div>
   </nav>
   <div style="height:100px"></div>
+  <audio id="myAudio">
+    <source src="siren.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+  <button onclick="playAudio()" type="button">Hello</button>
 
   <div id="machine" class="container">
     <h1 style="font-size:50px;">Straighten Up</h1>
@@ -52,21 +57,27 @@
           </ol>
         </div>
       </div>
-      <div class="col-md-6" style="background-color:red;padding-right:12px;padding-left:12px">
+      <div class="col-md-6 text-center" style="background-color:red;padding-right:12px;padding-left:12px">
         <h3 style="text-align:center;">Teachable Machine Model</h3>
 
-        <button class="tmbtn" onclick="init();loopstarter()">Start</button>
-        <button class="tmbtn" onclick="loopstopper()">Stop</button>
+        <button class="tmbtn" type="button" onclick="init();loopstarter()">Start</button>
+        <button class="tmbtn" type="button" onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
-        <button class="tmbtn" onclick="alignshowtoggle()">Align</button>
+        <button class="tmbtn" type="button" onclick="alignshowtoggle()">Align</button>
         <div class="text-center" style="background-color:blue;height:200px;position:relative;">
           <canvas style="height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
 
-          <div class="colorfulBar hidden" style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;"></div>
-          <div class="colorfulBar hidden" style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;"></div>
-          <div class="colorfulBar hidden" style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div class="colorfulBar hidden"
+            style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;">
+          </div>
+          <div class="colorfulBar hidden"
+            style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;">
+          </div>
+          <div class="colorfulBar hidden"
+            style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;">
+          </div>
         </div>
-        <div style="height:100px;" id="label-container"></div>
+        <div style="height:100px;text-align:center;" id="label-container"></div>
       </div>
     </div>
 
@@ -106,7 +117,18 @@
 
 
 
-
+  <script>
+    /*var audio = new Audio('siren.mp3');
+        function myaudiofunction(prediction){
+          if(prediction[0].probability.toFixed(2) > 0.9){
+            audio.play();}
+          }
+        }*/
+    var x = document.getElementbyId("myAudio");
+    function playAudio() {
+      x.play;
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
   <script type="text/javascript">
@@ -121,10 +143,10 @@
     }
 
 
-    let alignshow=true;
+    let alignshow = true;
     function alignshowtoggle() {
       var element = document.getElementsByClassName("colorfulBar");
-      if (alignshow==false) {
+      if (alignshow == false) {
         alignshow = true;
         element[0].classList.add("hidden");
         element[0].classList.remove("visible");
@@ -132,10 +154,10 @@
         element[1].classList.remove("visible");
         element[2].classList.add("hidden");
         element[2].classList.remove("visible");
-        
+
       } else {
-        alignshow=false;
-        
+        alignshow = false;
+
         element[0].classList.add("visible");
         element[0].classList.remove("hidden");
         element[1].classList.add("visible");
@@ -151,12 +173,6 @@
     async function init() {
       const modelURL = URL + "model.json";
       const metadataURL = URL + "metadata.json";
-      /*var audio = new Audio('siren.mp3');
-      function myaudiofunction(prediction){
-        if(prediction[0].probability.toFixed(2) > 0.9){
-          audio.play();}
-        }
-      }*/
 
 
       // load the model and metadata
@@ -191,8 +207,11 @@
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);//recursively
+        /*var audio = new Audio('siren.mp3');
+        if (prediction[0].probability.toFixed(2) > 0.9) {
+          audio.play();
+        }*/
       }
-
     }
 
     async function predict() {
@@ -218,7 +237,7 @@
       if (webcam.canvas) {
         ctx.drawImage(webcam.canvas, 0, 0);
         // draw the keypoints and skeleton
-        if (pose && alignshow ==false) {
+        if (pose && alignshow == false) {
           const minPartConfidence = 0.5;
           tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
           tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
