@@ -58,18 +58,12 @@
         <button class="tmbtn" onclick="init();loopstarter()">Start</button>
         <button class="tmbtn" onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
-        <div class="text-center" style="background-color:blue;height:200px;">
-          <div class="row" style="width:100%;">
-            <div class="col-12" style="background-color:blanchedalmond">
-              <canvas style="height:200px; width:200px;" id="canvas"></canvas>
-            </div>
+        <div class="text-center" style="background-color:blue;height:200px;position:relative;">
+          <canvas style="height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
 
-            <div class="col-0" style="height:200px;width:0px;position:relative;padding-left:0px;padding-right:0px;">
-              <div style="background-color:aquamarine;height:5px;position:relative;top:67px;right:200px;width:200px;"></div>
-              <div style="background-color:violet;height:5px;position:relative;top:133px;right:200px;width:200px;"></div>
-              <div style="background-color:aquamarine;height:5px;position:relative;top:160px;right:200px;width:200px"></div>
-            </div>
-          </div>
+          <div style="background-color:aquamarine;height:5px;position:relative;top:-138px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div style="background-color:violet;height:5px;position:relative;top:-72px;width:200px;transform:translateX(-50%);left:50%;"></div>
+          <div style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;"></div>
         </div>
         <div style="height:100px;" id="label-container"></div>
       </div>
