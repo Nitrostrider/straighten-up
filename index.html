@@ -30,11 +30,8 @@
     </div>
   </nav>
   <div style="height:100px"></div>
-  <audio id="myAudio">
-    <source src="siren.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-  <button onclick="playAudio()" type="button">Hello</button>
+  <button onclick="play()">Play Audio</button>
+
 
   <div id="machine" class="container">
     <h1 style="font-size:50px;">Straighten Up</h1>
@@ -124,9 +121,9 @@
             audio.play();}
           }
         }*/
-    var x = document.getElementbyId("myAudio");
-    function playAudio() {
-      x.play;
+    function play() {
+      var audio = new Audio('siren.ogg');
+      audio.play();
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -207,10 +204,6 @@
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);//recursively
-        /*var audio = new Audio('siren.mp3');
-        if (prediction[0].probability.toFixed(2) > 0.9) {
-          audio.play();
-        }*/
       }
     }
 
@@ -226,7 +219,11 @@
           prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         //2 decimal places
         labelContainer.childNodes[i].innerHTML = classPrediction;
-        console.log(prediction[i].probability.toFixed(2))
+        if (prediction[1].probability.toFixed(2) > 0.9) {
+          var audio = new Audio('siren.ogg');
+          audio.play();
+          console.log(prediction[1].probability.toFixed(2));
+        }
       }
 
       // draw the poses
