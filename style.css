@@ -1,5 +1,10 @@
 html {
   scroll-behavior:smooth;
+  font-family: "Roberto", sans-serif;
+}
+body {
+  background-color:#2b2e4a!important;
+  color:#ee7777!important;
 }
 /*
 darkpurple,#2b2e4a,
@@ -11,7 +16,7 @@ yellow, #fff44f
 .nav-link {
   margin:0px 20px;
   text-align:center;
-  color: #ee7777!important;
+  color: #2b2e4a!important;
   font-size:20px;
 }
 .nav-link:hover {

@@ -7,12 +7,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#2b2e4a;">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#ee7777;">
     <div class="container">
-      <a class="navbar-brand" style="font-size:30px;color: #ee7777" href="#">Straighten Up</a>
+      <a class="navbar-brand" style="font-size:30px;color: #2b2e4a" href="#">Straighten Up</a>
       <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -34,7 +37,7 @@
 
   <div id="machine" class="container">
     <h1 style="font-size:50px;">Straighten Up</h1>
-    <p>This is our MoCoHacks 2021 project</p>
+    <p>This is our MoCoHacks 2021 project.</p>
     <p>Maxwell Ye, Tyson Fang, Isaac Yebio</p>
     <div class="row">
       <div class="d-flex align-items-center col-md-6">
@@ -53,14 +56,14 @@
           </ol>
         </div>
       </div>
-      <div class="col-md-6 text-center" style="background-color:red;padding-right:12px;padding-left:12px">
+      <div class="col-md-6 text-center" style="background-color:#53354a;border-radius:30px;padding-right:12px;padding-left:12px">
         <h3 style="text-align:center;">Teachable Machine Model</h3>
 
         <button class="tmbtn" type="button" onclick="init();loopstarter()">Start</button>
         <button class="tmbtn" type="button" onclick="loopstopper()">Stop</button>
         <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
         <button class="tmbtn" type="button" onclick="alignshowtoggle()">Align</button>
-        <div class="text-center" style="background-color:blue;height:200px;position:relative;">
+        <div class="text-center" style="background-color:#ee7777;height:300px;position:relative;margin-bottom:20px;">
           <canvas style="height:200px; width:200px;margin-bottom:0px" id="canvas"></canvas>
 
           <div class="colorfulBar hidden"
@@ -72,8 +75,9 @@
           <div class="colorfulBar hidden"
             style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;">
           </div>
+          <div style="color:#2b2e4a; font-size:20px;:100px;text-align:center;" id="label-container"></div>
         </div>
-        <div style="height:100px;text-align:center;" id="label-container"></div>
+        
       </div>
     </div>
 
