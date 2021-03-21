@@ -22,7 +22,7 @@
       <div class="collapse justify-content-end navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href="#machine">Machine</a>
-          <a class="nav-link" href="#">What</a>
+          <a class="nav-link" href="#what">What</a>
           <a class="nav-link" href="#why">Why</a>
           <a class="nav-link" href="#resources">Resources</a>
         </div>
@@ -30,6 +30,7 @@
     </div>
   </nav>
   <div style="height:100px"></div>
+  <button onclick="play()">Play Audio</button>
 
 
   <div id="machine" class="container">
@@ -100,6 +101,18 @@
     </p>
   </div>
 
+
+  <div id="what" class="containter">
+    <h1> How We Did It</h1>
+    <p> Hello, our names are Maxwell Ye, Isaac Yebio, and Tyson Fang, and this is our MoCoHacks 2021 project. Our project’s name is “Straighten Up,” it is a website designed to help the user maintain good posture while sitting at their computer. We are submitting it into the Best UI Hack project track.
+</p>
+    <p>
+      Through the use of Teach Machine, a web-based tool that trains your computer to recognize sounds and images, “Straight Up” scans the users posture and alerts them if they begin to slouch or fall out of the good posture range. Good posture is a cornerstone of a healthy lifestyle and has numerous long term benefits, such as improved back performance with age and a decrease in overall health issues denoting physical performance. Creating an objective guideline to good posture as well as the correct measurement for bad posture was extremely difficult, but through immense research our team was able to come up with respectable guidelines for correct posture. We chose this overall concept due to the increased use and importance of digital communication in the ongoing pandemic and how users can still stay healthy while working at their keyboards. The website will recommend users the best distance between the screen and user’s eyes for optimal positioning along with a video tracker with alignments to help the user properly orient themselves. We also provided resources at the bottom of the website so users can further educate themselves on the importance of good posture. Due to the difficulty of coding the teaching machine we are extremely proud of the finished project. Because none of us had collaboratively coded in the past, learning the ins and outs of github was integral in our success. The github workshop, along with the plethora of other workshops throughout the day, were extremely informative, and assisted us throughout the hackathon. Furthermore, using the internet along with intuitive thinking, we were able to learn many new lines of code that will be undoubtedly helpful in our future. In the future we hope to implement an overall report on how good your posture was over the period of time you were on your computer.
+    </p>
+  </div>
+    
+  
+  
   <div id="resources" class="container">
     <h1>Resources</h1>
     <a
@@ -111,6 +124,20 @@
 
 
 
+
+
+  <script>
+    /*var audio = new Audio('siren.mp3');
+        function myaudiofunction(prediction){
+          if(prediction[0].probability.toFixed(2) > 0.9){
+            audio.play();}
+          }
+        }*/
+    function play() {
+      var audio = new Audio('siren.ogg');
+      audio.play();
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
   <script type="text/javascript">
@@ -206,7 +233,6 @@
         labelContainer.childNodes[i].innerHTML = classPrediction;
         if (prediction[1].probability.toFixed(2) > 0.9) {
           var audio = new Audio('siren.ogg');
-          audio.volume = 0.05;
           audio.play();
           console.log(prediction[1].probability.toFixed(2));
         }
