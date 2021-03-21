@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Mocohocks Project</title>
+  <title>Straighten Up</title>
   <link rel="stylesheet" href="/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,41 +12,66 @@
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#2b2e4a;">
     <div class="container">
-      <a class="navbar-brand" style="font-size:25px;color: #ee7777" href="#">Project</a>
+      <a class="navbar-brand" style="font-size:25px;color: #ee7777" href="#">Straighten Up</a>
       <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
         aria-label="Toggle navigation">
-        <span style="border-color:pink;" class="fish navbar-toggler-icon">
+        <span class="navbar-toggler-icon">
         </span>
       </button>
       <div class="collapse justify-content-end navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="#">Machine</a>
+          <a class="nav-link" href="#machine">Machine</a>
           <a class="nav-link" href="#">What</a>
           <a class="nav-link" href="#">Why</a>
-          <a class="nav-link" href="#">How</a>
+          <a class="nav-link" href="#">Resources</a>
         </div>
       </div>
     </div>
   </nav>
-  <div style="height:60px"></div>
+  <div style="height:100px"></div>
 
-  <div class="container">
-    <h1>Mocohacks Project</h1>
+  <div id="machine" class="container">
+    <h1 style="font-size:50px;">Straighten Up</h1>
+    <p>This is our MoCoHacks 2021 project</p>
+    <p>Maxwell Ye, Tyson Fang, Isaac Yebio</p>
     <div class="row">
-      <div class="col-md-6">
-        <p>hello</p>
-      </div>
-      <div class="col-md-6" style="background-color:red">
-        <div>Teachable Machine Pose Model</div>
-        <!--<input id="startBtn" type="button" value="Start(failure)" />-->
-        <button onclick="init();loopstarter()">Start</button>
-        <button onclick="loopstopper()">Stop</button>
-        <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
+      <div class="d-flex align-items-center col-md-6">
         <div>
-          <canvas style="height:200px; width:200px" id="canvas"></canvas>
+          <h3>The Optimal Posture</h3>
+          <p>Assuming that the user is using a computer and sitting at a table...</p>
+          <ul>
+            <li>20+ in between screen and user's eyes</li>
+            <li>Computer is directly in front of the user</li>
+            <li>Center of monitor is 15-20 degrees below horizontal eye level</li>
+          </ul>
+          <h3>Instructions</h3>
+          <ol>
+            <li>Align head to be in between the aquamarine lines.</li>
+            <li>Align nose to rest on pink line.</li>
+          </ol>
         </div>
-        <div id="label-container"></div>
+      </div>
+      <div class="col-md-6" style="background-color:red;padding-right:12px;padding-left:12px">
+        <h3 style="text-align:center;">Teachable Machine Model</h3>
+
+        <button class="tmbtn" onclick="init();loopstarter()">Start</button>
+        <button class="tmbtn" onclick="loopstopper()">Stop</button>
+        <!--<button id="stopBtn" type="button" onclick="">Stop</button>-->
+        <div style="background-color:blue;height:200px;">
+          <div class="row" style="width:100%;">
+            <div class="col">
+              <canvas style="height:200px; width:200px;" id="canvas"></canvas>
+            </div>
+
+            <div class="col" style="height:200px; background-color:pink;width:auto;position:relative;">
+              <div style="background-color:aquamarine;height:5px;position:relative;top:67px;right:200px"></div>
+              <div style="background-color:violet;height:5px;position:relative;top:133px;right:200px;"></div>
+              <div style="background-color:aquamarine;height:5px;position:relative;top:160px;right:200px;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="height:100px;" id="label-container"></div>
       </div>
     </div>
 
@@ -64,12 +89,22 @@
       <li>Decrease back pains and aches</li>
       <li>Servicable to aging</li>
       <li>Decrease the likelihood of headaches</li>
-      <li>Improved Oxygen Flow</li>
+      <li>Improve oxygen flow</li>
     </ol>
-    <p>As video meetings become more prevalent during this day and age, your virtual image becomes very important. Along
+    <p>As video meetings become more prevalent during this day and age, your virtual image becomes very important.
+      Along
       with the various health benefits associated with good posture, this website will also assist your image on
       professional meetings online.
     </p>
+  </div>
+
+  <div id="resources" class="container">
+    <h1>Resources</h1>
+    <a
+      href="https://www.osha.gov/SLTC/etools/computerworkstations/components_monitors.html#:~:text=Generally%2C%20the%20preferred%20viewing%20distance,the%20monitor%20(table%20depth)">United
+      States Department of Labor</a>
+    <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>
+    <a href="https://getbootstrap.com/">Bootstrap</a>
   </div>
 
 
@@ -92,33 +127,6 @@
     // the link to your model provided by Teachable Machine export panel
     const URL = "/my-pose-model/";
     let model, webcam, ctx, labelContainer, maxPredictions;
-
-    /*var mixBtn = document.getElementById("startBtn");
-    mixBtn.addEventListener("click", startTM);
-
-    function startTM() {
-      console.log("started");
-      mixBtn.removeEventListener("click", startTM);
-      mixBtn.addEventListener("click", stopTM);
-      mixBtn.value = "Stop";
-    }
-    function stopTM() {
-      console.log("stopped");
-      mixBtn.removeEventListener("click", stopTM);
-      mixBtn.addEventListener("click", startTM);
-    }
-
-    function hello() {
-      var cow = 1;
-      if (cow == 1) {
-        console.log("d");
-        init();
-        return;
-      } else {
-        console.log("goodbye")
-      }
-    }*/
-
 
     async function init() {
       const modelURL = URL + "model.json";
@@ -183,11 +191,11 @@
       if (webcam.canvas) {
         ctx.drawImage(webcam.canvas, 0, 0);
         // draw the keypoints and skeleton
-        /*if (pose) {
+        if (pose) {
           const minPartConfidence = 0.5;
           tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
           tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-        }*/
+        }
       }
     }
 
