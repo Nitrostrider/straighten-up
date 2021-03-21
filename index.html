@@ -13,7 +13,8 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:#ee7777;">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark"
+    style="box-shadow:0 3px 10px black;background-color:#ee7777;">
     <div class="container">
       <a class="navbar-brand" style="font-size:30px;color: #2b2e4a" href="#">Straighten Up</a>
       <button style="border-style:none;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -25,18 +26,17 @@
       <div class="collapse justify-content-end navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href="#machine">Machine</a>
-          <a class="nav-link" href="#what">What</a>
-          <a class="nav-link" href="#why">Why</a>
+          <a class="nav-link" href="#heights">Heights</a>
+          <a class="nav-link" href="#how">How</a>
           <a class="nav-link" href="#resources">Resources</a>
         </div>
       </div>
     </div>
   </nav>
   <div style="height:100px"></div>
-  <button onclick="play()">Play Audio</button>
 
-
-  <div id="machine" class="container">
+  <div id="machine" style="margin-bottom:40px;"
+   class="container">
     <h1 style="font-size:50px;">Straighten Up</h1>
     <p>This is our MoCoHacks 2021 project.</p>
     <p>Maxwell Ye, Tyson Fang, Isaac Yebio</p>
@@ -57,7 +57,8 @@
           </ol>
         </div>
       </div>
-      <div class="col-md-6 text-center" style="background-color:#53354a;border-radius:30px;padding-right:12px;padding-left:12px">
+      <div class="col-md-6 text-center"
+        style="background-color:#53354a;border-radius:30px;padding-right:12px;padding-left:12px">
         <h3 style="text-align:center;">Teachable Machine Model</h3>
 
         <button class="tmbtn" type="button" onclick="init();loopstarter()">Start</button>
@@ -76,47 +77,75 @@
           <div class="colorfulBar hidden"
             style="background-color:aquamarine;height:5px;position:relative;top:-42px;width:200px;transform:translateX(-50%);left:50%;">
           </div>
-          <div style="color:#2b2e4a; font-size:20px;:100px;text-align:center;" id="label-container"></div>
+          <div style="color:#2b2e4a; font-size:20px;height::100px;text-align:center;" id="label-container"></div>
         </div>
-        
+
       </div>
     </div>
 
 
   </div>
 
-  <div id="why" class="container">
-    <h1 style="text-align:center">Reaching New Heights</h1>
-    <p>The term posture is in reference to the position of one’s body in a standing or sitting position. The spine
-      consists of three natural curvatures which when aligned evenly distributes the weight between your feet. Good
-      posture distributes this weight to prevent lopsidedness.</p>
-    <p>- Nourishing proper posture form can</p>
-    <ol>
-      <li>Prevent stress from building on your spinal chords</li>
-      <li>Decrease back pains and aches</li>
-      <li>Servicable to aging</li>
-      <li>Decrease the likelihood of headaches</li>
-      <li>Improve oxygen flow</li>
-    </ol>
-    <p>As video meetings become more prevalent during this day and age, your virtual image becomes very important.
-      Along
-      with the various health benefits associated with good posture, this website will also assist your image on
-      professional meetings online.
-    </p>
+  <div style="background-color:#903749">
+    <div id="heights" style="padding:100px 0px;color:yellow;" class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 style="text-align:center">Reaching New Heights</h1>
+          <p>The term posture is in reference to the position of one’s body in a standing or sitting position. The spine
+            consists of three natural curvatures which when aligned evenly distributes the weight between your feet.
+            Good
+            posture distributes this weight to prevent lopsidedness.</p>
+          <p>- Nourishing proper posture form can</p>
+          <ol>
+            <li>Prevent stress from building on your spinal chords</li>
+            <li>Decrease back pains and aches</li>
+            <li>Servicable to aging</li>
+            <li>Decrease the likelihood of headaches</li>
+            <li>Improve oxygen flow</li>
+          </ol>
+          <p>As video meetings become more prevalent during this day and age, your virtual image becomes very important.
+            Along
+            with the various health benefits associated with good posture, this website will also assist your image on
+            professional meetings online.
+          </p>
+        </div>
+        <div class="col-lg-4 d-flex align-items-center">
+          <img class='img-fluid' src="onlinelearning.jpeg" alt="Online Learning">
+        </div>
+      </div>
+    </div>
   </div>
 
 
-  <div id="what" class="containter">
+  <div id="how" class="container">
     <h1> How We Did It</h1>
-    <p> Hello, our names are Maxwell Ye, Isaac Yebio, and Tyson Fang, and this is our MoCoHacks 2021 project. Our project’s name is “Straighten Up,” it is a website designed to help the user maintain good posture while sitting at their computer. We are submitting it into the Best UI Hack project track.
-</p>
+    <p> Hello, our names are Maxwell Ye, Isaac Yebio, and Tyson Fang, and this is our MoCoHacks 2021 project. Our
+      project’s name is “Straighten Up,” it is a website designed to help the user maintain good posture while sitting
+      at their computer. We are submitting it into the Best UI Hack project track.
+    </p>
     <p>
-      Through the use of Teach Machine, a web-based tool that trains your computer to recognize sounds and images, “Straight Up” scans the users posture and alerts them if they begin to slouch or fall out of the good posture range. Good posture is a cornerstone of a healthy lifestyle and has numerous long term benefits, such as improved back performance with age and a decrease in overall health issues denoting physical performance. Creating an objective guideline to good posture as well as the correct measurement for bad posture was extremely difficult, but through immense research our team was able to come up with respectable guidelines for correct posture. We chose this overall concept due to the increased use and importance of digital communication in the ongoing pandemic and how users can still stay healthy while working at their keyboards. The website will recommend users the best distance between the screen and user’s eyes for optimal positioning along with a video tracker with alignments to help the user properly orient themselves. We also provided resources at the bottom of the website so users can further educate themselves on the importance of good posture. Due to the difficulty of coding the teaching machine we are extremely proud of the finished project. Because none of us had collaboratively coded in the past, learning the ins and outs of github was integral in our success. The github workshop, along with the plethora of other workshops throughout the day, were extremely informative, and assisted us throughout the hackathon. Furthermore, using the internet along with intuitive thinking, we were able to learn many new lines of code that will be undoubtedly helpful in our future. In the future we hope to implement an overall report on how good your posture was over the period of time you were on your computer.
+      Through the use of Teach Machine, a web-based tool that trains your computer to recognize sounds and images,
+      “Straight Up” scans the users posture and alerts them if they begin to slouch or fall out of the good posture
+      range. Good posture is a cornerstone of a healthy lifestyle and has numerous long term benefits, such as improved
+      back performance with age and a decrease in overall health issues denoting physical performance. Creating an
+      objective guideline to good posture as well as the correct measurement for bad posture was extremely difficult,
+      but through immense research our team was able to come up with respectable guidelines for correct posture. We
+      chose this overall concept due to the increased use and importance of digital communication in the ongoing
+      pandemic and how users can still stay healthy while working at their keyboards. The website will recommend users
+      the best distance between the screen and user’s eyes for optimal positioning along with a video tracker with
+      alignments to help the user properly orient themselves. We also provided resources at the bottom of the website so
+      users can further educate themselves on the importance of good posture. Due to the difficulty of coding the
+      teaching machine we are extremely proud of the finished project. Because none of us had collaboratively coded in
+      the past, learning the ins and outs of github was integral in our success. The github workshop, along with the
+      plethora of other workshops throughout the day, were extremely informative, and assisted us throughout the
+      hackathon. Furthermore, using the internet along with intuitive thinking, we were able to learn many new lines of
+      code that will be undoubtedly helpful in our future. In the future we hope to implement an overall report on how
+      good your posture was over the period of time you were on your computer.
     </p>
   </div>
-    
-  
-  
+
+
+
   <div id="resources" class="container">
     <h1>Resources</h1>
     <a
@@ -127,21 +156,6 @@
   </div>
 
 
-
-
-
-  <script>
-    /*var audio = new Audio('siren.mp3');
-        function myaudiofunction(prediction){
-          if(prediction[0].probability.toFixed(2) > 0.9){
-            audio.play();}
-          }
-        }*/
-    function play() {
-      var audio = new Audio('siren.ogg');
-      audio.play();
-    }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
   <script type="text/javascript">
